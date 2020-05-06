@@ -15,6 +15,7 @@ namespace src
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            deliberatebuilderror
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
