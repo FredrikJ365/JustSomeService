@@ -39,3 +39,4 @@ steps:
   inputs:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'JustSomeServieSite'
+  displayName: Publish Build Artifacts
