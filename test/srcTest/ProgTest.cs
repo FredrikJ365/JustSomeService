@@ -1,4 +1,3 @@
-using System;
 using src;
 using Xunit;
 
@@ -7,7 +6,7 @@ namespace srcTest
     public class ProgTest
     {
         [Fact]
-        public void Prod_return_Two()
+        public void GetNumber_return_Two()
         {
             // Arrange
             // Act

@@ -2,9 +2,8 @@ namespace src
 {
     public class Prog
     {
-        public static int GetNumber()
-        {
-            return 1;
-        }
+        private const int Number = 2;
+
+        public static int GetNumber() => Number;
     }
 }
