@@ -19,7 +19,7 @@ namespace src.Controllers
         {
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View(new NumberViewModel());
         }
 
         public IActionResult Contact()
