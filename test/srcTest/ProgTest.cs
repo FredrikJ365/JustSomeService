@@ -13,7 +13,7 @@ namespace srcTest
             var result = Prog.GetNumber();
             // Assert
 
-            Assert.Equal(2, result);
+            Assert.Equal(1, result);
         }
     }
 }
