@@ -13,14 +13,15 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+# Don't enable SonarCloud for CI builds - it's *way* too slow.
 # Prepare SonarCloud
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'fredrikmjohansson'
-    scannerMode: 'CLI'
-    projectKey: 'FredrikJ365_JustSomeService'
-    projectName: 'JustSomeService'
+# - task: SonarCloudPrepare@1
+#   inputs:
+#     SonarCloud: 'SonarCloud'
+#     organization: 'fredrikmjohansson'
+#     scannerMode: 'CLI'
+#     projectKey: 'FredrikJ365_JustSomeService'
+#     projectName: 'JustSomeService'
 
 # Build it
 - script: dotnet build src/src.csproj --configuration $(buildConfiguration)
@@ -61,11 +62,12 @@ steps:
     zipAfterPublish: True
   displayName: Prepare build results
 
+# Don't enable SonarCloud for CI builds - it's *way* too slow.
 # Run SonarCloud
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+# - task: SonarCloudAnalyze@1
+# - task: SonarCloudPublish@1
+#   inputs:
+#     pollingTimeoutSec: '300'
 
 
 # Upload build result artifact.
