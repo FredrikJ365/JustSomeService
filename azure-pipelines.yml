@@ -19,7 +19,7 @@ steps:
 #   inputs:
 #     SonarCloud: 'SonarCloud'
 #     organization: 'fredrikmjohansson'
-#     scannerMode: 'CLI'
+#     scannerMode: 'MSBuild'
 #     projectKey: 'FredrikJ365_JustSomeService'
 #     projectName: 'JustSomeService'
 
