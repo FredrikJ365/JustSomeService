@@ -1,14 +1,16 @@
+# Sheduling, see: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?view=azure-devops&tabs=yaml#example-nightly-build-with-different-frequencies
+
+# Disable other triggers
+pr: none
+trigger: none
+
+# Set schedule
 schedules:
-- cron: "0 0 * * *"
-  displayName: Daily midnight build
+- cron: "0 3 * * Mon-Fri"
+  displayName: M-F 3:00 AM (UTC) daily build
   branches:
     include:
     - master
-    # - releases/*
-    # exclude:
-    # - releases/ancient/*
-  # only run if code changed
-  always: false
 
 pool:
   vmImage: 'ubuntu-latest'
