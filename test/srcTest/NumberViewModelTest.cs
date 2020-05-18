@@ -12,7 +12,7 @@ namespace srcTest
             var model = new NumberViewModel();
 
             // Act
-            var result = model.RandomUnsignedByteNumber;
+            var result = model.RandomNumber;
             
             // Assert
             Assert.InRange(result, 0, 256);

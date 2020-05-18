@@ -2,8 +2,10 @@
 
 @{
     ViewData["Title"] = "About";
+    int aRandomNumber = Model.RandomNumber;
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>Unsigned byte: @Model.RandomUnsignedByteNumber</p>
+<p>Unsigned byte: @aRandomNumber</p>
+<p>Binary: @Html.Raw(Convert.ToString(aRandomNumber, 2).PadLeft(16, '0'))</p>

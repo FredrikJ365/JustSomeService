@@ -4,7 +4,7 @@ namespace src.Models
 {
     public class NumberViewModel
     {
-        public int RandomUnsignedByteNumber
+        public int RandomNumber
         {
             get
             {
