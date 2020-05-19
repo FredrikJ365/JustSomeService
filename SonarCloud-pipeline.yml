@@ -5,7 +5,7 @@ trigger: none
 
 # Set schedule
 schedules:
-- cron: "0 3 * * Mon-Fri"
+- cron: "0 3 * * 1-5"
   displayName: M-F 3:00 AM (UTC) daily build
   branches:
     include:
