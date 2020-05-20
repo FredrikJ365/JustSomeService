@@ -14,7 +14,7 @@ schedules:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
 
 steps:
 # Prepare SonarCloud
