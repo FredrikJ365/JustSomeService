@@ -32,15 +32,16 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
 
 # Test it and collect coverage
-# - task: DotNetCoreCLI@2
-#   inputs:
-#     command: test
-#     projects: '**/*test/srcTest/*.csproj'
-#     arguments: -c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura,opencover"
-#   displayName: Run Tests
-
-- script: dotnet test test/srcTest/srcTest.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover,cobertura\"
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*test/srcTest/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true "/p:CoverletOutputFormat=\"opencover,Cobertura\""'
+    nobuild: true
   displayName: Run Tests
+
+# - script: dotnet test test/srcTest/srcTest.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover,cobertura\"
+#   displayName: Run Tests
 
   # Set up test reporting on Linux
 - task: DotNetCoreCLI@2
