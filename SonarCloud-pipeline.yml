@@ -36,7 +36,7 @@ steps:
   inputs:
     command: test
     projects: '**/*test/srcTest/*.csproj'
-    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true "/p:CoverletOutputFormat=\"opencover,Cobertura\""'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true --collect:"XPlat Code Coverage" "/p:CoverletOutputFormat=\"opencover,Cobertura\""'
     nobuild: true
   displayName: Run Tests
 
