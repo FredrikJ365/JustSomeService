@@ -14,7 +14,7 @@ schedules:
 pool:
   vmImage: 'ubuntu-latest'
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
 
 steps:
 # Prepare SonarCloud
@@ -36,7 +36,7 @@ steps:
   inputs:
     command: test
     projects: '**/*test/srcTest/*.csproj'
-    arguments: -c $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=\"cobertura,opencover\" -- RunConfiguration.DisableAppDomain=true --logger trx
+    arguments: -c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=\"cobertura,opencover\"
   displayName: Run Tests
 
   # Set up test reporting on Linux
