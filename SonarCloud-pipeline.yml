@@ -45,10 +45,15 @@ steps:
   displayName: Run Tests
 
   # Set up test reporting on Linux
-- script: |
-    dotnet tool install -g dotnet-reportgenerator-globaltool
-    reportgenerator "-reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml" "-targetdir:$(Build.SourcesDirectory)/CodeCoverage" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
-  displayName: Create Code Coverage Report
+- task: DotNetCoreCLI@2
+  inputs:
+    command: custom
+    custom: tool
+    arguments: install --tool-path . dotnet-reportgenerator-globaltool
+  displayName: Install ReportGenerator tool
+
+- script: ./reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.opencover.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines;Cobertura
+  displayName: Create reports
 
 # Publish code coverage
 - task: PublishCodeCoverageResults@1
