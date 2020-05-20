@@ -35,7 +35,7 @@ steps:
   inputs:
     command: test
     projects: '**/*test/srcTest/*.csproj'
-    arguments: -c $(BuildConfiguration) --collect:"XPlat Code Coverage" -- RunConfiguration.DisableAppDomain=true
+    arguments: -c $(BuildConfiguration) --collect:"XPlat Code Coverage" -- RunConfiguration.DisableAppDomain=true --logger trx
   displayName: Run Tests
 
   # Set up test reporting on Linux
