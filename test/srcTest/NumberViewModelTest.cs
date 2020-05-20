@@ -6,7 +6,7 @@ namespace srcTest
     public class NumberViewModelTest
     {
         [Fact]
-        public void RandomUnsignedByteNumber_return_0To256()
+        public void RandomNumber_return_0To256()
         {
             // Arrange
             var model = new NumberViewModel();
