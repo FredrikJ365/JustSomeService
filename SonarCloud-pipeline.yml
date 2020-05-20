@@ -39,7 +39,7 @@ steps:
 #     arguments: -c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura,opencover"
 #   displayName: Run Tests
 
-- script: dotnet test '**/*test/srcTest/*.csproj' --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover,cobertura\"
+- script: dotnet test test/srcTest/srcTest.csproj --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=\"opencover,cobertura\"
   displayName: Run Tests
 
   # Set up test reporting on Linux
