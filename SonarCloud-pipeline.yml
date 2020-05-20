@@ -25,6 +25,7 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'FredrikJ365_JustSomeService'
     projectName: 'JustSomeService'
+    extraProperties: 'sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
 
 # Build it
 - script: dotnet build src/src.csproj --configuration $(buildConfiguration)
@@ -35,7 +36,7 @@ steps:
   inputs:
     command: test
     projects: '**/*test/srcTest/*.csproj'
-    arguments: -c $(BuildConfiguration) --collect:"XPlat Code Coverage" -- RunConfiguration.DisableAppDomain=true --logger trx
+    arguments: -c $(BuildConfiguration) --collect:"XPlat Code Coverage" /p:CoverletOutputFormat=\"cobertura,opencover\" -- RunConfiguration.DisableAppDomain=true --logger trx
   displayName: Run Tests
 
   # Set up test reporting on Linux
