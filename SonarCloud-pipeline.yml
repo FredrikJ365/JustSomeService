@@ -36,7 +36,7 @@ steps:
   inputs:
     command: test
     projects: '**/*test/srcTest/*.csproj'
-    arguments: -c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=\"cobertura,opencover\"
+    arguments: -c $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura,opencover"
   displayName: Run Tests
 
   # Set up test reporting on Linux
